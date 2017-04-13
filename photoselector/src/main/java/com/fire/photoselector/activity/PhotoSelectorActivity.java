@@ -40,6 +40,7 @@ import java.util.Map;
 
 import static com.fire.photoselector.models.PhotoMessage.SELECTED_PHOTOS;
 import static com.fire.photoselector.models.PhotoSelectorSetting.COLUMN_COUNT;
+import static com.fire.photoselector.models.PhotoSelectorSetting.IS_SELECTED_FULL_IMAGE;
 import static com.fire.photoselector.models.PhotoSelectorSetting.SELECTED_FULL_IMAGE;
 import static com.fire.photoselector.models.PhotoSelectorSetting.LAST_MODIFIED_LIST;
 import static com.fire.photoselector.models.PhotoSelectorSetting.MAX_PHOTO_SUM;
@@ -104,6 +105,9 @@ public class PhotoSelectorActivity extends AppCompatActivity implements OnClickL
         vAlpha.setOnClickListener(this);
         Intent intent = getIntent();
         SELECTED_PHOTOS = intent.getStringArrayListExtra(LAST_MODIFIED_LIST);
+        if (SELECTED_PHOTOS.size() == 0) {
+            IS_SELECTED_FULL_IMAGE = false;
+        }
         photoListAdapter = new PhotoListAdapter(this, photoGroupMap.get("相机胶卷"));
         if (COLUMN_COUNT <= 1) {
             rvPhotoList.setLayoutManager(new LinearLayoutManager(this));
