@@ -1,12 +1,12 @@
 ## PhotoSelector 照片选择器
 仿新浪微博照片选择器
 ## 效果图
-![照片选择器](./Demo01.jpg)
-![照片选择器](./Demo02.jpg)
-![照片选择器](./Demo03.jpg)
-![照片选择器](./Demo04.jpg)
-![照片选择器](./Demo05.jpg)
-![照片选择器](./Demo06.jpg)
+![照片选择器](./Demo1.jpg)
+![照片选择器](./Demo2.jpg)
+![照片选择器](./Demo3.jpg)
+![照片选择器](./Demo4.jpg)
+![照片选择器](./Demo5.jpg)
+![照片选择器](./Demo6.jpg)
 
 ##如何使用
 1.Gradle添加依赖:
