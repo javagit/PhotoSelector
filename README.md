@@ -32,7 +32,7 @@
 
 	<application
 		...
-		<activity
+        <activity
             android:name="com.fire.photoselector.activity.PhotoSelectorActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
@@ -50,9 +50,9 @@
 
 	在需要开启照片选择器的地方调用:
 	private void selectPhotos(int sum, int columnCount) {
-		// 最大可选照片数
+        // 最大可选照片数
         PhotoSelectorSetting.MAX_PHOTO_SUM = sum;
-		// 照片列表列数
+        // 照片列表列数
         PhotoSelectorSetting.COLUMN_COUNT = columnCount;
         Intent intent = new Intent(MainActivity.this, PhotoSelectorActivity.class);
         intent.putExtra(PhotoSelectorSetting.LAST_MODIFIED_LIST, result);
@@ -66,10 +66,10 @@
         switch (requestCode) {
             case REQUEST_SELECT_PHOTO:
                 if (resultCode == RESULT_OK) {
-					// result为照片绝对路径集合,isSelectedFullImage标识是否选择原图
+                    // result为照片绝对路径集合,isSelectedFullImage标识是否选择原图
                     result = data.getStringArrayListExtra(PhotoSelectorSetting.LAST_MODIFIED_LIST);
                     boolean isSelectedFullImage = data.getBooleanExtra(PhotoSelectorSetting.SELECTED_FULL_IMAGE, false);
-					// TODO: 获取照片后的操作
+                    // TODO: 获取照片后的操作
                 }
                 break;
         }
