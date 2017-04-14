@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.fire.photoselector.R;
 import com.fire.photoselector.models.PhotoSelectorSetting;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,12 +27,17 @@ public class PhotoViewAdapter extends PagerAdapter {
     private List<String> list;
     private PhotoView photoView;
     private BitmapFactory.Options options;
+    private List<PhotoView> photoViewList = new ArrayList<>();
     /**
      * 照片宽高比例
      */
     private float photoRatio;
 
     public PhotoViewAdapter(Context context, List<String> list) {
+        // 只初始化4个PhotoView,防止内存溢出
+        for (int x = 0; x < 4; x++) {
+            photoViewList.add(new PhotoView(context));
+        }
         this.context = context;
         this.list = list;
     }
@@ -48,12 +54,13 @@ public class PhotoViewAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((View) object);
+        PhotoView photoView = photoViewList.get(position % 4);
+        container.removeView(photoView);
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        photoView = new PhotoView(context);
+        photoView = photoViewList.get(position % 4);
         options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(list.get(position), options);
