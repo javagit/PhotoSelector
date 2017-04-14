@@ -76,10 +76,5 @@ public class PhotoViewAdapter extends PagerAdapter {
         Glide.with(context).load(list.get(position)).into(photoView);
         container.addView(photoView);
         return photoView;
-//        View view = LayoutInflater.from(context).inflate(R.layout.photo_view_layout, container, false);
-//        ImageView ivPhotoView = (ImageView) view.findViewById(R.id.iv_photo_view);
-//        Glide.with(context).load(list.get(position)).into(ivPhotoView);
-//        container.addView(view);
-//        return view;
     }
 }
