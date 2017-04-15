@@ -280,6 +280,15 @@ public class PhotoSelectorActivity extends AppCompatActivity implements OnClickL
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if (rvFolderList.isShown()) {
+            toggleFolderList();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     private void toggleFolderList() {
         Animation animation;
         if (rvFolderList.isShown()) {
